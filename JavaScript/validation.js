@@ -1,6 +1,3 @@
-/*
-사용자의 입력값에 대한 유효성검사 Library
-*/ 
 
 //입력값이 존재하는지 여부 확인
 function isEmpty(value) {
