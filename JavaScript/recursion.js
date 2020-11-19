@@ -60,3 +60,28 @@ function recursionTwo(arr) {
 }
 //[2,3,4,5]
 
+//하노이탑 재귀함수
+function hanoi (num, from, to, other) {
+  // num: 원반의 수
+  // from: 원반들이 위치한 곳의 번호
+  // to: 원반들을 옮길 목적지 번호
+  // other: 나머지 한 곳(목적지가 아닌) 곳 번호
+  // 모두 옮겼으면 종료
+  if (num === 0) return;
+  // 가장 아래 원반을 제외한 원반들을 재귀적으로 목적지가 아닌 곳으로 옮김
+  hanoi(num - 1, from, other, to);
+  // 가장 아래 원반을 목적지로 옮김
+  console.log(`${from}번에서 ${to}로 옮긴다.`);
+  // 목적지가 아닌 곳으로 옮겼던 원반들을 재귀적으로 목적지로 옮김
+  hanoi(num - 1, other, to, from);
+}
+hanoi(3 ,'A' , 'B' ,"C");
+/*
+A번에서 B로 옮긴다.
+A번에서 C로 옮긴다.
+B번에서 C로 옮긴다.
+A번에서 B로 옮긴다.
+C번에서 A로 옮긴다.
+C번에서 B로 옮긴다.
+ */
+
