@@ -85,3 +85,28 @@ C번에서 A로 옮긴다.
 C번에서 B로 옮긴다.
  */
 
+// 1. 탈출조건
+// 재귀는 탈출조건이 없다면 계속 자신을 호출하다가 call stack error를 만나게 될겁니다.
+// 메모리는 한정적인데 계속 호출해서 사용했다는 이야기가 되겠네요.
+// 따라서 탈출조건은 아주 중요합니다
+// factorial을 구하는 재귀 함수에서 탈출조건을 if문으로 명시하고 있습니다.
+// 재귀를 호출할때 number - 1 연산에서 점진적으로 number값을 줄여나가 탈출조건 if문을 만나면
+// 더이상 재귀를 하지 않게 됩니다.
+// 2. base case
+// 탈출조건과 base case는 어떻게보면 같은 기능을 한다고 생각 할 수 있지만, 차이가 조금 있습니다. 탈출은 잘못된 값 또는 재귀를 멈춰야하는 필요한 상황에 대응하기 위함이고, base case는 원하는 결과물을 얻기위해 마지막 연산의 조건이라 생각하면 될것 같습니다.
+// factorial(4)의 경우 4 x 3 x 2 x 1 순서라면 number가 0일때 1을 리턴하여 재귀를 멈추고 리턴 되는 값을 연산하게 됩니다.
+function factorial(number){
+  //탈출조건
+  if(number < 0){
+    return;
+  }
+  //base case
+  if(number === 0){
+	return 1;
+  }
+  
+  //recursion
+  return number * factorial( number -1 );
+}
+factorial(4);
+//결과 24
