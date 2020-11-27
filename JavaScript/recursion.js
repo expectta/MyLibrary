@@ -111,3 +111,31 @@ function factorial(number){
 }
 factorial(4);
 //결과 24
+
+//webbrowser에 동일한 화면을 출력 해야 할 경우 재귀함수를 쓸때
+//설명 : createTreeView 함수가 menu라는 객체를 요소로가지고 있는 배열을 입력받아 
+//해당 배열 내 요소의 property를 통해 화면에 배열의 길이만큼의 동일한 element를 만든다.
+function createTreeView(menu, currentNode) {
+	menu.forEach(function(element) {
+		if(Array.isArray(element.children) ){
+
+			const liElement = document.createElement('li');
+			const inputElement = document.createElement('input');
+			const ulElement = document.createElement('ul');
+			const spanElement = document.createElement('span');
+			inputElement.type = "checkbox";
+			spanElement.textContent = element.name;
+			liElement.append(inputElement , spanElement ,ulElement);
+			
+			createTreeView(element.children, ulElement);
+			currentNode.append(liElement);
+		
+		}else if(element.children === undefined){
+			const rawElement = document.createElement('li');
+			rawElement.textContent = element.name;
+			currentNode.append(rawElement);
+		}
+	});
+}
+
+createTreeView(menu, root);
