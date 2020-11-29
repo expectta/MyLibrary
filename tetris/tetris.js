@@ -209,7 +209,7 @@ function init() {
   //메모리 효율을 위해 fragment생성
     const fragment = document.createDocumentFragment();
   
-//0~ 20까지 tr을 만들어라
+//10 x 20 그리드만들기
   [...Array(20).keys()].forEach((col, i) => {
     const tr = document.createElement('tr');
     fragment.appendChild(tr);
@@ -222,6 +222,7 @@ function init() {
   });
   tetris.appendChild(fragment);
 }
+
 
 function draw() {
   console.log('drawed', JSON.parse(JSON.stringify(tetrisData)), JSON.parse(JSON.stringify(currentBlock)));
@@ -248,8 +249,8 @@ function drawNext() { // 다음 블록 그리는 함수
     });
   })
 }
-
-function generate() { // 테트리스 블록 생성
+//쌓을 블럭을 생성하는 함수
+function generate() {
   if (!currentBlock) {
     currentBlock = blocks[Math.floor(Math.random() * blocks.length)];
   } else {
@@ -285,8 +286,8 @@ function generate() { // 테트리스 블록 생성
     draw();
   }
 }
-
-function checkRows() { // 한 줄 다 찼는지 검사
+//가로 열의 블럭이 모두 찼는지 확인하는 함수
+function checkRows() { 
   const fullRows = [];
   tetrisData.forEach((col, i) => {
     let count = 0;
@@ -309,8 +310,8 @@ function checkRows() { // 한 줄 다 찼는지 검사
   score += fullRowsCount ** 2;
   document.getElementById('score').textContent = String(score);
 }
-
-function tick() { // 한 칸 아래로
+//블럭을 한칸 아래로 이동하는 함수
+function tick() { 
   const nextTopLeft = [currentTopLeft[0] + 1, currentTopLeft[1]];
   const activeBlocks = [];
   let canGoDown = true;
