@@ -51,7 +51,20 @@ class LinkedList {
 		}
 	}
 
-  getNodeAt(index) {}
+  getNodeAt(index) {
+		let currentNode = this.head;
+		if(this._size < index){
+			return undefined;
+		}else{
+			for(let i = 0 ; i < this._size; i++){
+				if(i === index){
+					return currentNode;
+				}
+				currentNode = currentNode.next;
+
+			}
+		}
+	}
 
   contains(value) {}
 
