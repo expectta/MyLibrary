@@ -50,7 +50,9 @@ class LinkedList {
 			currentNode = currentNode.next;
 		}
 	}
-
+	//주어진 인덱스의 노드를 찾아서 반환합니다. 
+	//값이 아니라 노드를 반환해야 하는 것에 주의하세요. 
+	//해당 인덱스에 노드가 없다면 undefined를 반환합니다.
   getNodeAt(index) {
 		let currentNode = this.head;
 		if(this._size < index){
@@ -65,8 +67,17 @@ class LinkedList {
 			}
 		}
 	}
-
-  contains(value) {}
+	//연결리스트에 주어진 값을 가지는 노드의 존재 여부를 반환합니다.
+  contains(value) {
+		let currentNode = this.head;
+		while(currentNode ){
+			if(currentNode.value === value){
+				return true;
+			}
+			currentNode = currentNode.next;
+		}
+		return false;
+	}
 
 	//linkedlist 내 value와 값이 같은 node의 index를 리턴
   indexOf(value) {
