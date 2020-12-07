@@ -53,6 +53,27 @@ class BinarySearchTreeNode {
 	}
 	return result;
 	}
-	//중위순회
-  inorder(callback) {}
+	//중위순회 : 좌 root 우 
+  inorder(callback) {
+		//재귀함수
+		function recursion(currentNode){
+			//현재 node 에서 자식의 좌측 node가 있을경우
+			if(currentNode.left){
+				recursion(currentNode.left)
+			}
+			//현재 node value로 콜백함수 실행
+			/*	
+			let arr = [];
+			let cb = function (value) {
+				arr.push(value);
+			};
+			*/ 
+			callback(currentNode.value);
+			//현재 node에서 자식의 우측 noderk 있을경우
+			if(currentNode.right){
+				recursion(currentNode.right)
+			}
+		}
+		//최상위 root node로 재귀시작.
+		recursion(this);
 }
