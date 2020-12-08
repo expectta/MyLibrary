@@ -6,7 +6,6 @@ class TreeNode {
 
   insertNode(value) {
 		let treeNode = new TreeNode(value);
-		// {value : 1 , childern :[{value : 2 , childern :[]}]}
 		this.children.push(treeNode);
 	}
 
