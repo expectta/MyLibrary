@@ -139,3 +139,25 @@ function createTreeView(menu, currentNode) {
 }
 
 createTreeView(menu, root);
+
+//Maryoshka 재귀문제
+//인자로 마트료시카 객체를 기준으로 size의 값이 일치하는지 여부를 판단하는 재귀적 함수
+
+const matryoshka = {
+  size: 10,
+  matryoshka: {
+    size: 9,
+    matryoshka: null,
+  },
+};
+function findMatryoshka(matryoshka, size) {
+  if(matryoshka === undefined){
+    return false;
+  }
+  if(matryoshka.size === size){
+    return true;
+  }else if(matryoshka.matryoshka === null){
+    return false;
+  }
+  return findMatryoshka(matryoshka.matryoshka, size);
+}
