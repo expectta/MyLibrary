@@ -19,14 +19,14 @@ class TreeNode {
 			return;
 		}
 		//recursion 함수를 통해서 node가 있는지 판단.
-		function recursion(element, value){
+		function recursion(node, value){
 			let result = false;
-			if(element.value === value){
+			if(node.value === value){
 				result = true;
 				return result;
 			}
-			for(let i = 0 ; i < element.children.length; i++){
-				result = this.recursion(element.children[i],value);
+			for(let i = 0 ; i < node.children.length; i++){
+				result = this.recursion(node.children[i],value);
 				if(result === true){
 					return result;
 				}
