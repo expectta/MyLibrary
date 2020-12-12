@@ -1,15 +1,16 @@
+//자료구조 Tree
 class TreeNode {
+	//Tree의 node
   constructor(value) {
     this.value = value;
     this.children = [];
   }
-
+	//입력된 value 값으로 Tree 생성
   insertNode(value) {
 		let treeNode = new TreeNode(value);
-		// {value : 1 , childern :[{value : 2 , childern :[]}]}
 		this.children.push(treeNode);
 	}
-
+	//Tree에 value가 포함되어 있는지 리턴값으로 확인
   contains(value) {
 		let result = false;
 		let currentNode = this;
@@ -17,6 +18,7 @@ class TreeNode {
 			result =  true;
 			return;
 		}
+		//recursion 함수를 통해서 node가 있는지 판단.
 		function recursion(element, value){
 			let result = false;
 			if(element.value === value){
