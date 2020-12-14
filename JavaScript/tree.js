@@ -36,6 +36,8 @@ class TreeNode {
 		result = recursion(currentNode, value);
 		return result;
 	}
-
-	
 }
+let tree = new TreeNode();
+tree.insertNode(1);
+tree.insertNode(2);
+console.log(tree);

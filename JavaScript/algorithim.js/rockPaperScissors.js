@@ -48,7 +48,11 @@ const rockPaperScissors = function (rounds) {
     for (let i = 0; i < rps.length; i++) {
       let currentPlay = rps[i];
 			permutate(roundsToGo - 1, playedSoFar.concat(currentPlay));
-			//1 permutate 
+			//첫번째 재귀 permutate( 2 , [] ) i = 0 
+			//두번째 재귀 permutate( 1, ['rock'] ) i = 0 
+			//세번째 재귀 permutate( 0, ['rock','rock'] ) i = 1  , return outcomes = ['rock','rock']
+			//두번째 재귀 permutate( 0, ['rock','paper']) i =1 , return outcomes = ['rock','paper']
+			//세번째 재귀 permutate( 0, ['rock','scssors']) i = 2 , return outcomes = ['rock','scissors']
     }
   };
   permutate(rounds, []);
