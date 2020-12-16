@@ -347,30 +347,9 @@
 window.findNRooksSolution = function (n) {
 	//입력받은 n의 크기만큼의 2차배열을 생성.
 	let board = new Board({n:n});
-	// const solution = board.rows();// fixme
-	// for(let  row= 0 ; row < n ; row++){
-	// 	for(let col = 0 ;col < n ; col++){
-	// 		//board에 토글하여 piece를 배치
-	// 		board.togglePiece(row, col);
-	// 		//hasAnyRooksConflicts함수에서 가로/세로의 충돌 여부를 판단하고 출동(반환값 true)이 있을경우
-	// 		//해당 좌표의 piece를 제거한다.
-	// 		if(board.hasAnyRooksConflicts(row, col)){
-	// 			board.togglePiece(row, col);
-	// 		}			
-	// 		}
-	// 	}
-	// 	//재귀로 바꿀수 있다.
-  // console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
-	// return solution;
+	
 	const solution = board.rows();
-  // for (let row = 0; row < n; row++) {
-  //   for (let column = 0; column < n; column++) {
-  //     board.togglePiece(row, column);
-  //     if (board.hasAnyRooksConflicts()) {
-  //       board.togglePiece(row, column);
-  //     }
-  //   }
-  // }
+
   const recursion = function (rowIdx) {
 		//base case
 		//체스판이 다 찰경우
@@ -406,28 +385,7 @@ window.countNRooksSolutions = function (n) {
 				solutionCount++;
 				return;
 			}
-			//recusion
-			// 좌표 (0 , 0) piece 배치 > 충돌없음 > recursion(1) 실행
-				// [1 , 0 , 0 , 0]
-				// 좌표 (1 , 0) piece 배치 > 충돌있음 (0 , 0) > piece 제거 > 다음 colIndex 이동
-				// 좌표 (1 , 1) piece 배치 > 충돌없음 > recursion(2) 실행
-				//[1 , 0 , 0 , 0]
-				//[0 , 1 , 0 , 0]
-				//좌표 (2 , 0) piece 배치 > 충돌있음 (0 , 0) > piece 제거 > 다음 colIndex 이동
-				//좌표 (2 , 1) piece 배치 > 충돌있음 (1 , 1) > piece 제거 > 다음 colIndex 이동
-				//좌표 (2 , 2) piece 배치 > 충돌없음 > recursion(3)실행.
-				//[1 , 0 , 0 , 0]
-				//[0 , 1 , 0 , 0]
-				//[0 , 0 , 1 , 0]
-				//좌표 (3 , 0) piece 배치 > 충돌있음 (0, 0) > piece 제거 > 다음 colIndex 이동
-				//좌표 (3 , 1) piece 배치 > 충돌있음 (1, 1) > piece 제거 > 다음 colIndex 이동
-				//좌표 (3 , 2) piece 배치 > 충돌있음 (2, 2) > piece 제거 > 다음 colIndex 이동
-				//좌표 (3 , 3) piece 배치 > 충돌없음 > resucrion(4)실행.
-				//[1 , 0 , 0 , 0]
-				//[0 , 1 , 0 , 0]
-				//[0 , 0 , 1 , 0]
-				//[0 , 0 , 0 , 1]
-				//base case 재귀 종료
+	
 
 			for (let i = 0; i < n; i++) {
 				board.togglePiece(rowIndex, i);
